@@ -1,5 +1,12 @@
 <html>
     <head>
+    <div class="topnav">
+            <a class="active" href="./">Home</a>
+            <a href="./events">Events</a>
+            <a href="./contact">Private Hire</a>
+            <a href="./login">Staff Login</a>
+            <a href="./about">About</a>
+          </div>
     </head>
     <body>
         <h1>{{title}}</h1>
@@ -9,8 +16,11 @@
                 <p>
                     {{contents}}
                 </p>
+                <p>
+                    {{time}}
+                </p>
                 <div>
-                    <p>Written by {{instructor}} on {{date}}</p>
+                    <p>Event hosted by {{host}} on {{date}}</p>
                 </div>
             </div>
             <hr>

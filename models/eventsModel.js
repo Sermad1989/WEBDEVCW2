@@ -13,11 +13,30 @@ class Events {
         this.db.insert({
             title: 'Yoga class',
             contents: 'Yoga class for beginners',
+            date: '2023-08-11',
+            time: '12pm - 1pm',
+            host: 'Edith'
+        });
+        //for debugging
+        console.log('db entry Edith inserted');
+        this.db.insert({
+            title: 'Dance class',
+            contents: 'Dance class with Judy',
             date: '2020-02-16',
-            instructor: 'Peter'
+            time: '9am - 10am',
+            host: 'Judy'
+        });
+        //for debugging
+        console.log('db entry Judy inserted');
+        this.db.insert({
+            title: 'Fitness class',
+            contents: 'Running and cycling class for all ages',
+            date: '2020-02-16',
+            time: '10am - 11pm',
+            host: 'Tim'
         });
         //for later debugging
-        console.log('db entry Peter inserted');
+        console.log('db entry Tim inserted');
     }
     getAllEntries() {
         //return a Promise object, which can be resolved or rejected
