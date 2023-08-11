@@ -75,18 +75,18 @@ class Events {
         }) 
     } 
 
-    removeEntry() {return new Promise((resolve, reject) => {
+    removeEntry(id) {return new Promise((resolve, reject) => {
         //use the find() function of the database to get the data,
         //error first callback function, err for error, entries for data
-        this.db.remove({_id: id}, function(err, entries) {
+        console.log(id);
+        this.db.remove({_id:id}, function(err) {
             //if error occurs reject Promise
             if (err) {
+                console.log('error')
                 reject(err);
             //if no error resolve the promise & return the data
             } else {
-                resolve(entries);
-                //to see what the returned data looks like
-                console.log('function all() returns: ', entries);
+                console.log('deleted');
             }
         })
     })

@@ -15,7 +15,12 @@
     <body>
         <h1>{{title}}</h1>
         {{#entries}}
+
+        <form method="POST" action="/delete">
             <div>
+                <p>
+                {{_id}}
+                </p>
                 <h4>{{title}}</h4>
                 <p>
                     {{contents}}
@@ -28,9 +33,12 @@
                 </div>
             </div>
             {{#user}}
-            <a id="{{id}}" href="/delete" class="btn btn-primary" method=post>Delete</a>
-            <button type="button">Edit</button>
+
+            <input type="text" 'class="form-control" id="id" name="id">
+
+            <input type="Submit" value="Delete" class="btn btn-primary">
             {{/user}}
+            </form>
             <hr>
         {{/entries}}
         {{^entries}}

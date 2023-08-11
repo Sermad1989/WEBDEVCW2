@@ -15,7 +15,6 @@ router.get('/events', controller.events);
 router.get('/login', controller.showlogin);
 router.post('/login', login, controller.handle_login);
 
-router.get('/delete', controller.removeEntry);
 router.post('/delete', controller.removeEntry);
 
 router.get('/new', controller.show_new_entries);

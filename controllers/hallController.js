@@ -43,9 +43,10 @@ exports.handle_login = function (req, res) {
   };
 
   exports.removeEntry = function(req, res) {
-    console.log('reached Here');
+    console.log("id is:" + req.body.id);
+    db.removeEntry(req.body.id);
     res.redirect('/home.html');
-    }
+ }
 
     exports.show_new_entries = function (req, res) {
         res.render("newEntry", {
