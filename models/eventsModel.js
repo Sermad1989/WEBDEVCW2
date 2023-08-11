@@ -56,6 +56,42 @@ class Events {
             })
         })
     }
+
+    addEntry(host, title, contents, time, date) {
+        var entry = {
+        host: host,
+        title: title,
+        contents: contents,
+        date: date,
+        time: time
+        }
+        console.log('entry created', entry);
+        this.db.insert(entry, function(err, doc) {
+        if (err) {
+        console.log('Error inserting document', subject);
+        } else {
+        console.log('document inserted into the database', doc);
+        }
+        }) 
+    } 
+
+    removeEntry() {return new Promise((resolve, reject) => {
+        //use the find() function of the database to get the data,
+        //error first callback function, err for error, entries for data
+        this.db.remove({_id: id}, function(err, entries) {
+            //if error occurs reject Promise
+            if (err) {
+                reject(err);
+            //if no error resolve the promise & return the data
+            } else {
+                resolve(entries);
+                //to see what the returned data looks like
+                console.log('function all() returns: ', entries);
+            }
+        })
+    })
+
+    }
 }
 
 module.exports = Events;

@@ -41,3 +41,27 @@ exports.handle_login = function (req, res) {
     })
 
   };
+
+  exports.removeEntry = function(req, res) {
+    console.log('reached Here');
+    res.redirect('/home.html');
+    }
+
+    exports.show_new_entries = function (req, res) {
+        res.render("newEntry", {
+          title: "New Event",
+          user: "user"
+        });
+      };
+      
+      exports.post_new_entry = function (req, res) {
+        console.log("processing post-new_entry controller");
+        if (!req.body.host) {
+          response.status(400).send("Entries must have an host.");
+          return;
+        }
+        db.addEntry(req.body.host, req.body.title, req.body.contents, req.body.time, req.body.date);
+        res.redirect("/events");
+      };
+
+  
