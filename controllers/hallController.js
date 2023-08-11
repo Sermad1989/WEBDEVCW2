@@ -22,3 +22,12 @@ exports.events = function (req, res) {
         })
 }
 
+exports.showlogin = function (req, res) {
+    res.render('login');
+}
+
+exports.handle_login = function (req, res) {
+    res.render("events", {
+      title: "events"
+    });
+  };
