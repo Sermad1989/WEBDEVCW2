@@ -27,7 +27,17 @@ exports.showlogin = function (req, res) {
 }
 
 exports.handle_login = function (req, res) {
-    res.render("events", {
-      title: "events"
-    });
+    db.getAllEntries()
+    .then((list) => {
+        res.render('events', {
+            'title': 'Staff Events',
+             user:'user',
+            'entries': list
+        });
+        console.log('promise resolved');
+    })
+    .catch((err) => {
+        console.log('promise rejected', err);
+    })
+
   };

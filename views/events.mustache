@@ -23,6 +23,10 @@
                     <p>Event hosted by {{host}} on {{date}}</p>
                 </div>
             </div>
+            {{#user}}
+            <button type="button">Delete</button>
+            <button type="button">Edit</button>
+            {{/user}}
             <hr>
         {{/entries}}
         {{^entries}}
