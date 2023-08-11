@@ -1,0 +1,22 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>{{title}}</h1>
+        {{#entries}}
+            <div>
+                <h4>{{title}}</h4>
+                <p>
+                    {{contents}}
+                </p>
+                <div>
+                    <p>Written by {{instructor}} on {{date}}</p>
+                </div>
+            </div>
+            <hr>
+        {{/entries}}
+        {{^entries}}
+            No entries yet.
+        {{/entries}}
+    </body>
+</html>

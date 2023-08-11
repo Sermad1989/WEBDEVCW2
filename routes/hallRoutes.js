@@ -2,10 +2,13 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/hallController.js');
 
-router.get("/", controller.landing_page);
+router.get("/", function(req, res) {
+    res.redirect('/home.html');
+})
 router.get('/about', function(req, res) {
     res.redirect('/about.html');
 })
+router.get('/events', controller.events);
     
 router.use(function(req, res) {
 res.status(404);
