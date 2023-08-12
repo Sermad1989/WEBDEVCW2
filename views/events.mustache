@@ -4,23 +4,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{title}}</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <div class="topnav">
+    </head>
+
+    <body>
+    <div class="navbar bg-light" >
             <a class="active" href="./">Home</a>
             <a href="./events">Events</a>
-            <a href="./contact">Private Hire</a>
-            <a href="./login">Staff Login</a>
+            <a href="./contact">Bookings</a>
+            <a href="./login">Login</a>
             <a href="./about">About</a>
           </div>
-    </head>
-    <body>
         <h1>{{title}}</h1>
         {{#entries}}
 
         <form method="POST" action="/delete">
             <div>
-                <p>
-                {{_id}}
-                </p>
                 <h4>{{title}}</h4>
                 <p>
                     {{contents}}
@@ -32,19 +30,21 @@
                     <p>Event hosted by {{host}} on {{date}}</p>
                 </div>
             </div>
-            {{#user}}
-
-            <input type="text" 'class="form-control" id="id" name="id">
-
-            <input type="Submit" value="Delete" class="btn btn-primary">
-            {{/user}}
-            </form>
+            
             <hr>
         {{/entries}}
         {{^entries}}
             No entries yet.
         {{/entries}}
             <div>
+            {{#user}}
+
+            <input type="text" 'class="form-control" id="title" name="title">
+
+            <input type="Submit" value="Delete" class="btn btn-primary">
+            {{/user}}
+            </form>
+            </div>
             {{#user}}
             <a href="./new" class="btn btn-primary">
             Add event
