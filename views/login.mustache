@@ -1,9 +1,17 @@
 <html>
 <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+ <div class="navbar bg-light" >
+            <a class="active" href="./">Home</a>
+            <a href="./events">Events</a>
+            <a href="./contact">Bookings</a>
+            <a href="./login">Login</a>
+            <a href="./about">About</a>
+          </div>
 </head>
 <body class="container">
-<h1>{{title}}</h1>
-<h2>Sign In</h2>
+<h1 style="background-color: #80ced6">{{title}}</h1>
+<h2 style="background-color: #80ced6">Sign In</h2>
 <div id="formContent">
 <!-- Login Form -->
 <form method="POST" action="/login">

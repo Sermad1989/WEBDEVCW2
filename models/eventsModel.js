@@ -92,6 +92,29 @@ class Events {
     })
 
     }
+
+    find(title) {
+        //return a Promise object, which can be resolved or rejected
+        return new Promise((resolve, reject) => {
+            //use the find() function of the database to get the data,
+            //error first callback function, err for error, entries for data
+            this.db.find({title:title}, function(err, entries) {
+                //if error occurs reject Promise
+                if (err) {
+                    reject(err);
+                //if no error resolve the promise & return the data
+                } else {
+                    resolve(entries);
+                    //to see what the returned data looks like
+                    console.log('function all() returns: ', entries);
+                }
+            })
+        })
+    }
+
+    update(id, host, title, contents, date, time){
+        this.db.update({_id:id},{host:host, title:title, contents:contents, date:date, time:time});
+    }
 }
 
 module.exports = Events;

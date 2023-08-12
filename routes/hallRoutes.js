@@ -19,7 +19,11 @@ router.post('/delete', controller.removeEntry);
 
 router.get('/new', controller.show_new_entries);
 router.post('/new', controller.post_new_entry);
-    
+
+router.post('/edit', controller.editEntry);
+
+router.post('/editevent', controller.editedEntry);
+
 router.use(function(req, res) {
 res.status(404);
 res.type('text/plain');

@@ -14,10 +14,10 @@
             <a href="./login">Login</a>
             <a href="./about">About</a>
           </div>
-        <h1>{{title}}</h1>
+        <h1 style="background-color: #80ced6">{{title}}</h1>
         {{#entries}}
 
-        <form method="POST" action="/delete">
+        
             <div>
                 <h4>{{title}}</h4>
                 <p>
@@ -39,11 +39,23 @@
             <div>
             {{#user}}
 
-            <input type="text" 'class="form-control" id="title" name="title">
+            <form method="POST" action="/delete">
+
+            <input type="text" class="form-control" id="title" name="title">
 
             <input type="Submit" value="Delete" class="btn btn-primary">
-            {{/user}}
+
             </form>
+
+            <form method="POST" action="/edit">
+
+            <input type="text" class="form-control" id="title" name="title">
+
+            <input type="Submit" value="Edit" class="btn btn-primary">
+            
+            </form>
+
+            {{/user}}
             </div>
             {{#user}}
             <a href="./new" class="btn btn-primary">
