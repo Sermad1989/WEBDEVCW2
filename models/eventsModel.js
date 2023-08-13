@@ -26,7 +26,7 @@ class Events {
             time: '9am - 10am',
             host: 'Judy'
         });
-        //for debugging
+        
         console.log('db entry Judy inserted');
         this.db.insert({
             title: 'Fitness class',
@@ -35,7 +35,7 @@ class Events {
             time: '10am - 11pm',
             host: 'Tim'
         });
-        //for later debugging
+        
         console.log('db entry Tim inserted');
     }
     getAllEntries() {
@@ -51,7 +51,7 @@ class Events {
                 } else {
                     resolve(entries);
                     //to see what the returned data looks like
-                    console.log('function all() returns: ', entries);
+                    console.log('all entries: ', entries);
                 }
             })
         })
@@ -76,15 +76,13 @@ class Events {
     } 
 
     removeEntry(title) {return new Promise((resolve, reject) => {
-        //use the find() function of the database to get the data,
-        //error first callback function, err for error, entries for data
+        
         console.log(title);
         this.db.remove({title:title}, function(err) {
-            //if error occurs reject Promise
             if (err) {
                 console.log('error')
                 reject(err);
-            //if no error resolve the promise & return the data
+            
             } else {
                 console.log('deleted');
             }
@@ -94,10 +92,9 @@ class Events {
     }
 
     find(title) {
-        //return a Promise object, which can be resolved or rejected
+        
         return new Promise((resolve, reject) => {
-            //use the find() function of the database to get the data,
-            //error first callback function, err for error, entries for data
+            
             this.db.find({title:title}, function(err, entries) {
                 //if error occurs reject Promise
                 if (err) {
