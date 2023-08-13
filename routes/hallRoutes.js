@@ -10,6 +10,10 @@ router.get("/", function(req, res) {
 router.get('/about', function(req, res) {
     res.redirect('/about.html');
 })
+
+router.get('/contact', function(req, res){
+    res.redirect('/bookings.html');
+})
 router.get('/events', controller.events);
 
 router.get('/login', controller.showlogin);
@@ -17,8 +21,8 @@ router.post('/login', login, controller.handle_login);
 
 router.post('/delete', controller.removeEntry);
 
-router.get('/new', controller.show_new_entries);
-router.post('/new', controller.post_new_entry);
+router.get('/new', verify, controller.show_new_entries);
+router.post('/new', verify, controller.post_new_entry);
 
 router.post('/edit', controller.editEntry);
 

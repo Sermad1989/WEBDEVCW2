@@ -15,7 +15,7 @@ exports.login = function (req, res, next) {
         }
         if (!user) {
             console.log("user ", username, " not found");
-            return res.render("/login");
+            return res.render("login");
         }
         else { console.log(user) };
 
@@ -38,3 +38,19 @@ exports.login = function (req, res, next) {
         })
     });
 };
+
+exports.verify = function (req, res, next) {
+    let accessToken = req.cookies.jwt;
+    if (!accessToken) {
+        console.log('no access Token')
+      return res.status(403).send();
+    }
+    let payload;
+    try {
+      payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
+      next();
+    } catch (e) {
+      //if an error occured return request unauthorized error
+      res.status(401).send();
+    }
+  };

@@ -87,12 +87,17 @@ exports.post_new_entry = function (req, res) {
             console.log('promise rejected', err);
         })
 
-    }
+}
 
-    exports.editEntry = function (req, res) {
-        console.log(req.body.title);
-        db.find(req.body.title)
-        .then((list)=>{
+exports.editEntry = function (req, res,) {
+    console.log(req.body.title);
+    db.find(req.body.title)
+        .then((list) => {
+            if (list.length == 0) {
+                console.log('incorrect entry');
+                exit();
+            }
+            else{
             console.log(list)
             res.render('editEvent', {
                 'title': 'Edit Event',
@@ -100,17 +105,18 @@ exports.post_new_entry = function (req, res) {
                 'entries': list
             });
             console.log('promise resolved');
+        }
         })
         .catch((err) => {
             console.log('promise rejected', err);
         })
 
-    }
+}
 
-    exports.editedEntry = function (req, res) {
-        console.log(req.body);
-        db.update(req.body.id, req.body.host, req.body.title, req.body.contents, req.body.date, req.body.time);
-        db.getAllEntries()
+exports.editedEntry = function (req, res) {
+    console.log(req.body);
+    db.update(req.body.id, req.body.host, req.body.title, req.body.contents, req.body.date, req.body.time);
+    db.getAllEntries()
         .then((list) => {
             res.render('events', {
                 'title': 'Staff Events Page',
@@ -122,11 +128,11 @@ exports.post_new_entry = function (req, res) {
         .catch((err) => {
             console.log('promise rejected', err);
         })
-    }
+}
 
 
 
-    
+
 
 
 

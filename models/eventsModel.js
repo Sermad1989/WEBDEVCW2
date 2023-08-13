@@ -106,14 +106,21 @@ class Events {
                 } else {
                     resolve(entries);
                     //to see what the returned data looks like
-                    console.log('function all() returns: ', entries);
+                    console.log('returns: ', entries);
                 }
             })
         })
     }
 
     update(id, host, title, contents, date, time){
-        this.db.update({_id:id},{host:host, title:title, contents:contents, date:date, time:time});
+        this.db.update({_id:id},{host:host, title:title, contents:contents, date:date, time:time}, function (err){
+        if(err){
+            console.log('error');
+        }
+        else{
+            console.log('database updated');
+        }
+        });
     }
 }
 
